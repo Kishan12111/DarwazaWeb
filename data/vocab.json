@@ -1,0 +1,52 @@
+{
+  "governance": {
+    "eng": "The action or manner of governing a state, organization, etc.",
+    "hin": "शासन, प्रशासन",
+    "example": "Good governance is essential for economic development."
+  },
+  "bureaucracy": {
+    "eng": "A system of government in which most decisions are made by state officials",
+    "hin": "नौकरशाही",
+    "example": "The bureaucracy was slow to implement the new policies."
+  },
+  "transparency": {
+    "eng": "Openness and accountability in government or business operations",
+    "hin": "पारदर्शिता",
+    "example": "Transparency in government spending builds public trust."
+  },
+  "accountability": {
+    "eng": "The fact of being responsible for decisions and actions",
+    "hin": "जवाबदेही",
+    "example": "Public officials must maintain accountability to citizens."
+  },
+  "judiciary": {
+    "eng": "The judicial authorities of a country; judges collectively",
+    "hin": "न्यायपालिका",
+    "example": "An independent judiciary is crucial for democracy."
+  },
+  "legislature": {
+    "eng": "The legislative body of a country or state",
+    "hin": "विधायिका",
+    "example": "The legislature passed several important bills this session."
+  },
+  "executive": {
+    "eng": "The branch of government responsible for implementing laws",
+    "hin": "कार्यपालिका",
+    "example": "The executive branch enforces the laws passed by parliament."
+  },
+  "federalism": {
+    "eng": "A system of government with power divided between central and regional authorities",
+    "hin": "संघवाद",
+    "example": "India follows a federal system of government."
+  },
+  "amendment": {
+    "eng": "A change or addition to a legal document or constitution",
+    "hin": "संशोधन",
+    "example": "The constitutional amendment was passed by a two-thirds majority."
+  },
+  "preamble": {
+    "eng": "An introductory statement explaining the purpose of a document",
+    "hin": "प्रस्तावना",
+    "example": "The preamble to the Constitution outlines India's core values."
+  }
+}
