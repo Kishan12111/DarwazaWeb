@@ -3,6 +3,17 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
+import { ConvexClientProvider } from "./ConvexClientProvider";
+
+
 
 export const metadata: Metadata = {
   title: 'v0 App',
@@ -16,11 +27,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+        <ClerkProvider>
+
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
+
+        <ConvexClientProvider>{children}</ConvexClientProvider>
         <Analytics />
       </body>
     </html>
+        </ClerkProvider>
   )
 }
