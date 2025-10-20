@@ -1,6 +1,5 @@
 import { mutation } from "./_generated/server";
 import { v } from "convex/values";
-import { query } from "convex/react";
 
 export const CreateUser = mutation({
   args: {

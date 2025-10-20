@@ -14,5 +14,17 @@ export default defineSchema({
     streak: v.number(),
     level: v.number(),
 lastLogin: v.optional(v.number()),
+  }),
+  QuestionDatabase: defineTable({
+    questionId: v.number(),
+    questionLatex: v.string(),
+    year: v.number(),
+    shift: v.string(),
+    subjectcode: v.string(),
+    imageUrl: v.string(),
+    options: v.array(v.string()),
+    solution: v.string(),
   })
+   .index("by_questionId", ["questionId"])
 });
+

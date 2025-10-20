@@ -58,6 +58,9 @@ export default function Page() {
               <Link href="/profile" className="text-muted-foreground hover:text-foreground transition-colors">
                 Profile
               </Link>
+               <Link href="/pyqs" className="text-muted-foreground hover:text-foreground transition-colors">
+                PYQs
+              </Link>
             </nav>
             <div className="flex space-x-4">
               <button className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
