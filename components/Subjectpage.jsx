@@ -1,3 +1,4 @@
+"use client";
 import { GateSubjects } from '@/data/GateSubjects';
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
@@ -9,12 +10,15 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 function SubjectPage({ activeItem, gateSubjects }) {
   const subject = GateSubjects[activeItem];
   const [darkMode, setDarkMode] = useState(true);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (darkMode) document.documentElement.classList.add("dark");
@@ -89,6 +93,7 @@ function SubjectPage({ activeItem, gateSubjects }) {
               </ItemContent>
               <ItemActions className="flex justify-center pb-4">
                 <Button
+                  onClick={() => router.push(`/pyqs/${GateSubjects[activeItem].code}/${year}`, "_blank")}
                   variant="default"
                   size="sm"
                   className="bg-red-500 hover:bg-red-600 text-white dark:bg-red-600 dark:hover:bg-red-700 transition-all duration-300 rounded-lg px-4"

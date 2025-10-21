@@ -21,7 +21,7 @@ function page() {
         <SubjectPage activeItem={activeItem} />
       ) : (
         <div className="">
-          <HoverEffect activeItem={activeItem} setActiveItem={setActiveItem} />
+          <HoverEffect activeItem={activeItem} setActiveItem={setActiveItem}  />
         </div>
       )}
     </div>
