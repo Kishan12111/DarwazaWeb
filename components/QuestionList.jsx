@@ -13,7 +13,7 @@ const TOPICS = ['Math', 'Aptitude', 'Technical', 'General Knowledge', 'Reasoning
 export default function QuestionList() {
   const [filters, setFilters] = useState({ searchText: '', subjectCode: '', year: '', topic: '' });
   const [search, setSearch] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const questions = useQuery(api.fetchQuestions.searchQuestions, filters);
 

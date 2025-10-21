@@ -1,6 +1,6 @@
 import { GateSubjects } from '@/data/GateSubjects';
-import React from 'react';
-import { Button } from "@/components/ui/button"
+import React, { useEffect, useState } from 'react';
+import { Button } from "@/components/ui/button";
 import { PYQYears } from '@/data/QuestionBankYears';
 import {
   Item,
@@ -8,17 +8,36 @@ import {
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@/components/ui/item"
+} from "@/components/ui/item";
 import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
 
 function SubjectPage({ activeItem, gateSubjects }) {
   const subject = GateSubjects[activeItem];
+  const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (darkMode) document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-red-50 py-10">
+    <div className="relative min-h-screen bg-gradient-to-b from-white via-gray-50 to-red-50 dark:from-gray-900 dark:via-gray-950 dark:to-black transition-colors duration-500">
+      {/* Theme Toggle */}
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:scale-105 transition-transform"
+      >
+        {darkMode ? (
+          <Sun className="w-5 h-5 text-yellow-400" />
+        ) : (
+          <Moon className="w-5 h-5 text-gray-700" />
+        )}
+      </button>
+
       {/* Subject Title */}
       <motion.div
-        className="flex justify-center text-4xl font-extrabold text-red-600 mb-6 tracking-wide"
+        className="flex justify-center text-4xl font-extrabold text-red-600 dark:text-red-400 mb-6 tracking-wide"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -28,7 +47,7 @@ function SubjectPage({ activeItem, gateSubjects }) {
 
       {/* Subject Description */}
       <motion.p
-        className="max-w-3xl mx-auto text-center text-gray-700 text-lg leading-relaxed mb-10"
+        className="max-w-3xl mx-auto text-center text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
@@ -58,13 +77,13 @@ function SubjectPage({ activeItem, gateSubjects }) {
           >
             <Item
               variant="outline"
-              className="bg-white shadow-md hover:shadow-xl border border-gray-200 rounded-2xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl border border-gray-200 dark:border-gray-700 rounded-2xl transition-all duration-300"
             >
               <ItemContent className="text-center py-6">
-                <ItemTitle className="text-2xl font-semibold text-gray-800 mb-2">
+                <ItemTitle className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
                   {year}
                 </ItemTitle>
-                <ItemDescription className="text-gray-500 text-sm">
+                <ItemDescription className="text-gray-500 dark:text-gray-400 text-sm">
                   Previous Year Question Set
                 </ItemDescription>
               </ItemContent>
@@ -72,7 +91,7 @@ function SubjectPage({ activeItem, gateSubjects }) {
                 <Button
                   variant="default"
                   size="sm"
-                  className="bg-red-500 hover:bg-red-600 text-white transition-all duration-300 rounded-lg px-4"
+                  className="bg-red-500 hover:bg-red-600 text-white dark:bg-red-600 dark:hover:bg-red-700 transition-all duration-300 rounded-lg px-4"
                 >
                   Take Test
                 </Button>
