@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { generateGeminiContent } from "../configs/AiModel";
+import { generateGeminiContent } from "../../../configs/AiModel";
 
 export async function POST(req) {
   try {
