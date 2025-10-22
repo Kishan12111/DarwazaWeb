@@ -8,31 +8,35 @@ export default function Page() {
 
   const features = [
     {
-      title: "Daily Editorials",
-      description: "Comprehensive analysis of current affairs with expert insights",
-      icon: "📰",
+      title: "GATE PYQ Analysis",
+      description:
+        "Access topic-wise previous year questions with solutions, difficulty levels, and trend analysis to understand exam patterns deeply.",
+      icon: "📘",
     },
     {
-      title: "Smart Quizzes",
-      description: "AI-generated questions based on editorial content",
-      icon: "🧠",
+      title: "Smart Practice Mode",
+      description:
+        "Solve PYQs like a live test, with AI-powered hints, instant evaluation, and subject filters for focused revision.",
+      icon: "⚡",
     },
     {
-      title: "Progress Tracking",
-      description: "Visual calendar to track your daily learning journey",
+      title: "Performance Tracking",
+      description:
+        "Monitor your accuracy, weak topics, and time management with interactive analytics and progress visualization.",
       icon: "📊",
     },
     {
-      title: "Vocabulary Builder",
-      description: "Bilingual definitions and contextual examples",
-      icon: "📚",
+      title: "Resource Integration",
+      description:
+        "Quickly link PYQs with standard textbooks, reference notes, and related theory for efficient concept brushing.",
+      icon: "🧩",
     },
   ]
 
   const stats = [
-    { value: "500+", label: "Daily Readers", company: "SSC Aspirants" },
-    { value: "95%", label: "Success Rate", company: "Previous Year" },
-    { value: "50+", label: "Topics Covered", company: "Monthly" },
+    { value: "10,000+", label: "PYQs Available", company: "All GATE Subjects" },
+    { value: "25+", label: "Years Covered", company: "2000–2025" },
+    { value: "99%", label: "Authenticity", company: "Verified by Experts" },
     { value: "24/7", label: "Access Available", company: "Study Anytime" },
   ]
 
@@ -44,22 +48,22 @@ export default function Page() {
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">S</span>
+                <span className="text-primary-foreground font-bold text-lg">G</span>
               </div>
-              <span className="text-xl font-bold">SSC Prep</span>
+              <span className="text-xl font-bold">GATE PYQ Hub</span>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/editorials" className="text-muted-foreground hover:text-foreground transition-colors">
-                About
-              </Link>
-              <Link href="/calendar" className="text-muted-foreground hover:text-foreground transition-colors">
-                Calendar
-              </Link>
-              <Link href="/profile" className="text-muted-foreground hover:text-foreground transition-colors">
-                Profile
-              </Link>
-               <Link href="/pyqs" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/pyqs" className="text-muted-foreground hover:text-foreground transition-colors">
                 PYQs
+              </Link>
+              <Link href="/subjects" className="text-muted-foreground hover:text-foreground transition-colors">
+                Subjects
+              </Link>
+              <Link href="/progress" className="text-muted-foreground hover:text-foreground transition-colors">
+                Progress
+              </Link>
+              <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                About
               </Link>
             </nav>
             <div className="flex space-x-4">
@@ -67,7 +71,7 @@ export default function Page() {
                 Import Progress
               </button>
               <button className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
-                Start Learning
+                Start Practicing
               </button>
             </div>
           </div>
@@ -79,51 +83,41 @@ export default function Page() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-balance mb-6">
-                The complete platform to ace your <span className="text-primary">SSC exams.</span>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                Crack <span className="text-primary">GATE</span> with Precision —
+                <br /> One PYQ at a Time.
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 text-pretty">
-                Your comprehensive toolkit to stop struggling and start succeeding. Master current affairs, build
-                vocabulary, and track progress with our student-friendly platform.
+              <p className="text-xl text-muted-foreground mb-8">
+                Stop juggling PDFs and random notes. Access organized, topic-wise GATE PYQs, track your improvement, and
+                prepare smarter with AI-powered insights — all in one place.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/editorials">
+                <Link href="/pyqs">
                   <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                    Start Learning
+                    Start Solving PYQs
                   </button>
                 </Link>
-                <Link href="/calendar">
+                <Link href="/progress">
                   <button className="px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-secondary transition-colors">
-                    View Progress
+                    View Analytics
                   </button>
                 </Link>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-card border border-border rounded-2xl p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold">Today's Progress</h3>
-                  <span className="text-sm text-muted-foreground">Sep 25, 2025</span>
+            <div className="bg-card border border-border rounded-2xl p-6">
+              <h3 className="font-semibold mb-4">Example Snapshot</h3>
+              <div className="space-y-3">
+                <div className="p-3 bg-secondary rounded-lg flex justify-between items-center">
+                  <span>Network Theorems (2022)</span>
+                  <span className="text-primary font-medium">Correct: 85%</span>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm">Editorial Reading</span>
-                    <div className="w-24 h-2 bg-secondary rounded-full">
-                      <div className="w-3/4 h-2 bg-primary rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm">Quiz Completion</span>
-                    <div className="w-24 h-2 bg-secondary rounded-full">
-                      <div className="w-1/2 h-2 bg-primary rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm">Vocabulary</span>
-                    <div className="w-24 h-2 bg-secondary rounded-full">
-                      <div className="w-5/6 h-2 bg-primary rounded-full"></div>
-                    </div>
-                  </div>
+                <div className="p-3 bg-secondary rounded-lg flex justify-between items-center">
+                  <span>Signals & Systems (2021)</span>
+                  <span className="text-primary font-medium">Correct: 78%</span>
+                </div>
+                <div className="p-3 bg-secondary rounded-lg flex justify-between items-center">
+                  <span>Analog Circuits (2023)</span>
+                  <span className="text-primary font-medium">Correct: 92%</span>
                 </div>
               </div>
             </div>
@@ -151,12 +145,12 @@ export default function Page() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">
-                Master your preparation. <span className="text-primary">Track your progress.</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Study Smarter, Not Harder.
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 text-pretty">
-                The platform for rapid progress. Let your focus stay on learning instead of managing study materials
-                with automated progress tracking, built-in testing, and integrated vocabulary building.
+              <p className="text-lg text-muted-foreground mb-8">
+                GATE preparation doesn’t have to be chaotic. This website helps you organize, analyze, and master every
+                topic by connecting PYQs, insights, and analytics into one clean experience.
               </p>
               <div className="space-y-4">
                 {features.map((feature, index) => (
@@ -178,22 +172,20 @@ export default function Page() {
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-card border border-border rounded-2xl p-8">
-                <div className="text-center mb-6">
-                  <div className="text-4xl mb-4">{features[activeFeature].icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{features[activeFeature].title}</h3>
-                  <p className="text-muted-foreground">{features[activeFeature].description}</p>
+            <div className="bg-card border border-border rounded-2xl p-8">
+              <div className="text-center mb-6">
+                <div className="text-4xl mb-4">{features[activeFeature].icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{features[activeFeature].title}</h3>
+                <p className="text-muted-foreground">{features[activeFeature].description}</p>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-3 bg-secondary rounded-lg">
+                  <span className="text-sm">Interactive Mode</span>
+                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-secondary rounded-lg">
-                    <span className="text-sm">Feature Demo</span>
-                    <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-secondary rounded-lg">
-                    <span className="text-sm">Interactive Elements</span>
-                    <div className="w-3 h-3 bg-primary rounded-full"></div>
-                  </div>
+                <div className="flex items-center justify-between p-3 bg-secondary rounded-lg">
+                  <span className="text-sm">Smart Insights</span>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -204,18 +196,20 @@ export default function Page() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">Ready to transform your SSC preparation?</h2>
-          <p className="text-lg text-muted-foreground mb-8 text-pretty">
-            Join thousands of successful candidates who have used our platform to achieve their civil service dreams.
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to level up your GATE preparation?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Join thousands of aspirants who use GATE PYQ Hub to analyze, learn, and perfect their exam strategy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/editorials">
+            <Link href="/pyqs">
               <button className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                Start Learning Today
+                Start Practicing Now
               </button>
             </Link>
             <button className="px-8 py-4 border border-border text-foreground rounded-lg font-medium hover:bg-secondary transition-colors">
-              Export Progress
+              Track My Progress
             </button>
           </div>
         </div>
@@ -228,60 +222,43 @@ export default function Page() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-lg">S</span>
+                  <span className="text-primary-foreground font-bold text-lg">G</span>
                 </div>
-                <span className="text-xl font-bold">SSC Prep</span>
+                <span className="text-xl font-bold">GATE PYQ Hub</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Your comprehensive platform for SSC and civil service exam preparation.
+                Your trusted preparation companion for mastering GATE with data-driven learning and analysis.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Features</h3>
+              <h3 className="font-semibold mb-4">Explore</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="/editorials" className="hover:text-foreground transition-colors">
-                    Daily Editorials
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calendar" className="hover:text-foreground transition-colors">
-                    Progress Calendar
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/notes" className="hover:text-foreground transition-colors">
-                    Notes & Bookmarks
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/leaderboard" className="hover:text-foreground transition-colors">
-                    Leaderboard
-                  </Link>
-                </li>
+                <li><Link href="/pyqs" className="hover:text-foreground">PYQs</Link></li>
+                <li><Link href="/subjects" className="hover:text-foreground">Subjects</Link></li>
+                <li><Link href="/progress" className="hover:text-foreground">Progress</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Tools</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Quiz Generator</li>
-                <li>Vocabulary Builder</li>
-                <li>Progress Tracking</li>
-                <li>Import/Export Data</li>
+                <li>Smart Filters</li>
+                <li>AI Insights</li>
+                <li>Trend Graphs</li>
+                <li>Topic Analytics</li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Help Center</li>
-                <li>Study Tips</li>
+                <li>FAQs</li>
                 <li>Exam Updates</li>
                 <li>Community</li>
+                <li>Contact</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 SSC Prep. All rights reserved. Built for students, by students.</p>
+            <p>&copy; 2025 GATE PYQ Hub. All rights reserved. Built for engineers, by engineers.</p>
           </div>
         </div>
       </footer>
