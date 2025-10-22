@@ -1,6 +1,6 @@
 "use client";
 import { GateSubjects } from '@/data/GateSubjects';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { PYQYears } from '@/data/QuestionBankYears';
 import {
@@ -12,32 +12,17 @@ import {
 } from "@/components/ui/item";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
 
 function SubjectPage({ activeItem, gateSubjects }) {
   const subject = GateSubjects[activeItem];
-  const [darkMode, setDarkMode] = useState(true);
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (darkMode) document.documentElement.classList.add("dark");
-    else document.documentElement.classList.remove("dark");
-  }, [darkMode]);
+  // theme handled globally via ThemeProvider
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-white via-gray-50 to-red-50 dark:from-gray-900 dark:via-gray-950 dark:to-black transition-colors duration-500">
-      {/* Theme Toggle */}
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:scale-105 transition-transform"
-      >
-        {darkMode ? (
-          <Sun className="w-5 h-5 text-yellow-400" />
-        ) : (
-          <Moon className="w-5 h-5 text-gray-700" />
-        )}
-      </button>
+      {/* Theme toggle removed here; use global header toggle */}
 
       {/* Subject Title */}
       <motion.div

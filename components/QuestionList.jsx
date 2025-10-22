@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react';
+"use client"
+import React, { useState } from 'react';
 import { useQuery } from 'convex/react';
 import { api } from "../convex/_generated/api.js";
 import LatexRenderer from './LatexRenderer';
 import Header from './Header.jsx';
-import { Sun, Moon } from 'lucide-react';
+// import { Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SUBJECT_CODES = ['EE', 'EC', 'CS', 'ME', 'CE', 'CH', 'BT', 'PH', 'CY', 'MA'];
 const YEARS = ['2018', '2019', '2020', '2021', '2022', '2023', '2024'];
 const TOPICS = ['Math', 'Aptitude', 'Technical', 'General Knowledge', 'Reasoning'];
 
-export default function QuestionList() {
-  const [filters, setFilters] = useState({ searchText: '', subjectCode: '', year: '', topic: '' });
+export default function QuestionList( { subjectCode, year } ) {
+  const [filters, setFilters] = useState({ searchText: '', subjectCode: subjectCode || '', year: year || '', topic: '' });
   const [search, setSearch] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  // Removed local darkMode state; now using global theme
 
   const questions = useQuery(api.fetchQuestions.searchQuestions, filters);
 
-  useEffect(() => {
-    if (darkMode) document.documentElement.classList.add('dark');
-    else document.documentElement.classList.remove('dark');
-  }, [darkMode]);
+  // Removed useEffect for darkMode; handled globally
 
   const handleFilterChange = (field, value) => setFilters(prev => ({ ...prev, [field]: value }));
   const clearFilters = () => setFilters({ searchText: '', subjectCode: '', year: '', topic: '' });
@@ -29,12 +27,7 @@ export default function QuestionList() {
     <div className="relative min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Header />
 
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:scale-105 transition-transform"
-      >
-        {darkMode ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-gray-700" />}
-      </button>
+      {/* Dark mode toggle button moved to global header/layout */}
 
       <div className="space-y-6 px-6 md:px-12 py-8">
         <button

@@ -11,6 +11,7 @@ import {
   UserButton,
 } from '@clerk/nextjs';
 import { ConvexClientProvider } from "./ConvexClientProvider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // Metadata object (for reference, JSX doesn't enforce types)
 export const metadata = {
@@ -18,14 +19,15 @@ export const metadata = {
   description: 'Created with v0',
   generator: 'v0.app',
 };
-
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
-          <Analytics />
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            <ConvexClientProvider>{children}</ConvexClientProvider>
+            <Analytics />
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

@@ -37,41 +37,39 @@ export const searchQuestions = query({
     topic: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
-    let query = ctx.db.query("questions");
-    
-    if (args.searchText) {
-      query = ctx.db
+    let q;
+
+    // If user entered search text, use search index
+    if (args.searchText && args.searchText.trim() !== "") {
+      q = ctx.db
         .query("questions")
-        .withSearchIndex("search_question", (q) => {
-          let searchQuery = q.search("questionText", args.searchText);
-          if (args.subjectCode) searchQuery = searchQuery.eq("subjectCode", args.subjectCode);
-          if (args.year) searchQuery = searchQuery.eq("year", args.year);
-          if (args.topic) searchQuery = searchQuery.eq("topic", args.topic);
-          return searchQuery;
-        });
-    } else {
-      if (args.subjectCode && args.year) {
-        query = query.withIndex("by_subject_year", (q) => 
-          q.eq("subjectCode", args.subjectCode).eq("year", args.year)
+        .withSearchIndex("search_question", (search) =>
+          search.search("questionText", args.searchText)
         );
-      } else if (args.topic) {
-        query = query.withIndex("by_topic", (q) => q.eq("topic", args.topic));
-      }
+    } else {
+      q = ctx.db.query("questions");
     }
-    
-    const questions = await query.order("desc").take(20);
-    
+
+    // Apply filters safely on all paths
+    if (args.subjectCode) q = q.filter((q) => q.eq(q.field("subjectCode"), args.subjectCode));
+    if (args.year) q = q.filter((q) => q.eq(q.field("year"), args.year));
+    if (args.topic) q = q.filter((q) => q.eq(q.field("topic"), args.topic));
+
+    // Fetch recent questions first
+    const results = await q.order("desc").take(30);
+
+    // Attach image URLs + option image URLs
     return Promise.all(
-      questions.map(async (question) => ({
+      results.map(async (question) => ({
         ...question,
-        questionImageUrl: question.questionImageId 
-          ? await ctx.storage.getUrl(question.questionImageId) 
+        questionImageUrl: question.questionImageId
+          ? await ctx.storage.getUrl(question.questionImageId)
           : null,
         options: await Promise.all(
           question.options.map(async (option) => ({
             ...option,
-            imageUrl: option.imageId 
-              ? await ctx.storage.getUrl(option.imageId) 
+            imageUrl: option.imageId
+              ? await ctx.storage.getUrl(option.imageId)
               : null,
           }))
         ),
