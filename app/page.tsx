@@ -50,7 +50,7 @@ export default function Page() {
             </div>
             <nav className="hidden md:flex space-x-8">
               <Link href="/editorials" className="text-muted-foreground hover:text-foreground transition-colors">
-                Editorials
+                About
               </Link>
               <Link href="/calendar" className="text-muted-foreground hover:text-foreground transition-colors">
                 Calendar
